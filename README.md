@@ -4,7 +4,7 @@ Tools for MiraCFW.
 
 ## Mira Companion
 
-An Android application to control MiraCFW, [click here to see the project](https://github.com/OpenOrbis/mira-toolbox/tree/master/).
+An Android application to control MiraCFW, [click here to see the project](https://github.com/OpenOrbis/mira-toolbox/tree/master/Mira-Companion).
 
 ## PS4 Payload Sender for Android
 
