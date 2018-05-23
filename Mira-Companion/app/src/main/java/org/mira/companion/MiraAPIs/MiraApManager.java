@@ -82,6 +82,7 @@ public class MiraApManager {
 
         // TODO :  Check why SSID name is not getting changed
         myConfig.SSID = ssid; // SSID name of network
+        myConfig.BSSID = ssid; // SSID name of network
         myConfig.preSharedKey = password; // password for network
         myConfig.allowedKeyManagement.set(4); // 4 is for KeyMgmt.WPA2_PSK which is not exposed by android KeyMgmt class
         myConfig.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN); // Set Auth Algorithms to open
