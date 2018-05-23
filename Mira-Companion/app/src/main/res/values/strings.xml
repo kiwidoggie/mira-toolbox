@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Mira Companion</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_power_menu">Turn off</string>
+    <string name="action_hostpot_menu">Enable Wifi Hotpost</string>
+    <string name="action_remote_menu">Remote Controller</string>
+    <string name="action_debug_menu">Debug Menu</string>
+    <string name="action_plugins_menu">Plugins Menu</string>
+
+    <string name="action_menu_main">Home</string>
+    <string name="action_menu_store">Store</string>
+    <string name="action_menu_devices">Devices</string>
+    <string name="action_menu_plugins">Plugins</string>
+    <string name="action_menu_downloads">Downloads</string>
+    <string name="action_menu_night_mode">Night Mode</string>
+
+</resources>
