@@ -53,6 +53,15 @@
                 />
 
             <TextView
+                android:id="@+id/mira_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mira 1.0 Beta"
+                android:textColor="@color/white"
+                />
+
+
+            <TextView
                 android:id="@+id/ps4_ip_port"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +70,7 @@
                 />
 
             <TextView
-                android:id="@+id/ps4_ip_port"
+                android:id="@+id/ps4_mac"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="192.168.0.102:9020"

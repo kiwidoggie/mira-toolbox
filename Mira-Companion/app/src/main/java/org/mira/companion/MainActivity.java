@@ -1,5 +1,6 @@
 package org.mira.companion;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -40,11 +41,15 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialize.util.UIUtils;
 import com.mikepenz.octicons_typeface_library.Octicons;
 
+import org.mira.companion.MiraAPIs.MiraNetwork;
 import org.mira.companion.Utils.CrossfadeWrapper;
+import org.mira.companion.Utils.Helper;
 import org.mira.companion.Utils.Prefs;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    //TODO : Clean this code... too messed up :/
 
     private static final int PROFILE_SETTING = 1;
 
@@ -98,10 +103,69 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch (id)
+        {
+
+
+            case R.id.action_hotspot:
+
+                if(MiraNetwork.isUserConnectedOnWifi(this))
+                {
+                    Toast.makeText(this, "You are already connected to a Wifi Network", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Helper
+                            .showDialog(this, "You are currently not connected on a wifi network. Would you like to create an access point on this device ?",
+                                    getString(R.string.no),
+                                    getString(R.string.yes),
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        // NO
+
+                                        }
+                                    }, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        // YES
+
+
+                                        }
+                                    }
+                            );
+                }
+
+                break;
+
+            case R.id.action_settings:
+                Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.action_remote:
+                Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+                break;
+
+
+            case R.id.action_debug:
+                Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.action_plugins:
+                Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+                break;
+
+
+            case R.id.action_power:
+                Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+                break;
+
+
+            default:
+                return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -110,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setMenu(Bundle savedInstanceState, Toolbar toolbar)
     {
-        final IProfile profile = new ProfileDrawerItem().withName("Bienvenue, ").withEmail("Mira User").withIcon(getResources().getDrawable(R.drawable.ic_launcher_foreground));
+        final IProfile profile = new ProfileDrawerItem().withName("Welcome, ").withEmail("Mira User").withIcon(getResources().getDrawable(R.mipmap.ic_launcher_foreground));
 
         // Create the AccountHeader
         headerResult = new AccountHeaderBuilder()
@@ -119,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 .addProfiles(
                         profile,
                         //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
-                        new ProfileSettingDrawerItem().withName("Déconnection").withDescription("Quitter Dokita Eyes App!").withIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_sign_out_alt).colorRes(R.color.colorPrimary)).withIdentifier(PROFILE_LOGOUT)
+                        new ProfileSettingDrawerItem().withName("Logout").withDescription("Leave Mira!").withIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_sign_out_alt).colorRes(R.color.colorPrimary)).withIdentifier(PROFILE_LOGOUT)
                         //               new ProfileSettingDrawerItem().withName("Réglages").withIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_cogs).colorRes(R.color.colorPrimary)).withIdentifier(PROFILE_SETTING)
                 )
                 .withSelectionListEnabledForSingleProfile(true) // pour avoir un seul compte
@@ -134,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                           //  FirebaseAuth.getInstance().signOut();
                             Prefs.edit().clear().commit();
 
-                            Toast.makeText(getApplicationContext(), "Votre compte a bien été déconnecté. Merci !", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "You have successfully been logged off!", Toast.LENGTH_SHORT).show();
 
                             // DokitaApplication.clearApplicationData();
                             finish();
@@ -170,16 +234,16 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
 
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_brightness_5).withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_home).withBadge("22").withBadgeStyle(new BadgeStyle(Color.RED, Color.RED)).withIdentifier(2).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_app_store_ios).withBadge("22") /*.withBadgeStyle(new BadgeStyle(Color.BLUE, Color.WHITE)).withIdentifier(2).withSelectable(false) */,
                         new PrimaryDrawerItem().withName(R.string.action_menu_devices).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(4),
-              /*          new PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(GoogleMaterial.Icon.gmd_cloud_download).withIdentifier(4),
+                          /*          new PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
                         new SectionDrawerItem().withName(R.string.drawer_item_section_header),
                         new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
                         new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withTag("Bullhorn"),
            */             new DividerDrawerItem(),
-                        new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
+                        new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(GoogleMaterial.Icon.gmd_settings_brightness).withChecked(false).withOnCheckedChangeListener(onCheckedChangeListener)
                         //         new ToggleDrawerItem().withName("Toggle").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
 
                 )
@@ -255,13 +319,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Create a few sample profile
         // NOTE you have to define the loader logic too. See the CustomApplication for more details
-        final IProfile profile = new ProfileDrawerItem().withName("Mike Penz").withEmail("mikepenz@gmail.com").withIcon("https://avatars3.githubusercontent.com/u/1476232?v=3&s=460");
-        final IProfile profile2 = new ProfileDrawerItem().withName("Bernat Borras").withEmail("alorma@github.com").withIcon(Uri.parse("https://avatars3.githubusercontent.com/u/887462?v=3&s=460"));
-    /*    final IProfile profile3 = new ProfileDrawerItem().withName("Max Muster").withEmail("max.mustermann@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile2));
-        final IProfile profile4 = new ProfileDrawerItem().withName("Felix House").withEmail("felix.house@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile3));
-        final IProfile profile5 = new ProfileDrawerItem().withName("Mr. X").withEmail("mister.x.super@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile4)).withIdentifier(4);
-        final IProfile profile6 = new ProfileDrawerItem().withName("Batman").withEmail("batman@gmail.com").withIcon(getResources().getDrawable(R.drawable.profile5));
-*/
+        final IProfile profile = new ProfileDrawerItem().withName("Demo Profile").withEmail("demo@mira.org").withIcon("https://avatars3.githubusercontent.com/u/1476232?v=3&s=460");
+
         // Create the AccountHeader
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
@@ -269,14 +328,8 @@ public class MainActivity extends AppCompatActivity {
                 .withTranslucentStatusBar(false)
                 .addProfiles(
                         profile,
-                        profile2,
-                   /*     profile3,
-                        profile4,
-                        profile5,
-                        profile6,
-                       */
-                        //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
-                        new ProfileSettingDrawerItem().withName("Add Account").withDescription("Add new GitHub Account").withIcon(GoogleMaterial.Icon.gmd_add).withIdentifier(PROFILE_SETTING),
+
+               new ProfileSettingDrawerItem().withName("Add Account").withDescription("Add new PSN Account").withIcon(GoogleMaterial.Icon.gmd_add).withIdentifier(PROFILE_SETTING),
                         new ProfileSettingDrawerItem().withName("Manage Account").withIcon(GoogleMaterial.Icon.gmd_settings)
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
@@ -285,13 +338,7 @@ public class MainActivity extends AppCompatActivity {
                         //sample usage of the onProfileChanged listener
                         //if the clicked item has the identifier 1 add a new profile ;)
                         if (profile instanceof IDrawerItem && ((IDrawerItem) profile).getIdentifier() == PROFILE_SETTING) {
-                            IProfile newProfile = new ProfileDrawerItem().withNameShown(true).withName("Batman").withEmail("batman@gmail.com").withIcon(getResources().getDrawable(R.drawable.ic_launcher_foreground));
-                            if (headerResult.getProfiles() != null) {
-                                //we know that there are 2 setting elements. set the new profile above them ;)
-                                headerResult.addProfile(newProfile, headerResult.getProfiles().size() - 2);
-                            } else {
-                                headerResult.addProfiles(newProfile);
-                            }
+
                         }
 
                         //false if you have not consumed the event and it should close the drawer
@@ -307,16 +354,12 @@ public class MainActivity extends AppCompatActivity {
                 .withTranslucentStatusBar(false)
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_brightness_5).withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_home).withBadge("22").withBadgeStyle(new BadgeStyle(Color.RED, Color.RED)).withIdentifier(2).withSelectable(false),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_app_store).withBadge("22").withBadgeStyle(new BadgeStyle(Color.RED, Color.RED)).withIdentifier(2).withSelectable(false),
                         new PrimaryDrawerItem().withName(R.string.action_menu_devices).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(FontAwesome.Icon.faw_eye).withIdentifier(4),
-              /*          new PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
-                        new SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withTag("Bullhorn"),
-           */             new DividerDrawerItem(),
-                        new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
+                        new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(GoogleMaterial.Icon.gmd_cloud_download).withIdentifier(4),
+                          new DividerDrawerItem(),
+                        new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(GoogleMaterial.Icon.gmd_settings_brightness).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
                //         new ToggleDrawerItem().withName("Toggle").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
                 ) // add the items we want to use with our Drawer
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
