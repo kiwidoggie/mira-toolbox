@@ -12,12 +12,12 @@ import android.util.Log;
 import java.lang.reflect.Method;
 
 /*App manger class*/
-public class ApManager {
-    public static final String TAG = "ApManager";
-    private final WifiManager mWifiManager;
+public class MiraApManager {
+    public static final String TAG = "MiraApManager";
+    private static WifiManager mWifiManager;
     private Context context;
 
-    public ApManager(Context context) {
+    public MiraApManager(Context context) {
         this.context = context;
         mWifiManager = (WifiManager) this.context.getSystemService(Context.WIFI_SERVICE);
     }
@@ -32,7 +32,7 @@ public class ApManager {
         }
     }
     //check whether wifi hotspot on or off
-    public boolean isApOn() {
+    public static boolean isApOn() {
         try {
             Method method = mWifiManager.getClass().getDeclaredMethod("isWifiApEnabled");
             method.setAccessible(true);
@@ -43,7 +43,7 @@ public class ApManager {
         return false;
     }
     // Turn wifiAp hotspot on
-    public boolean turnWifiApOn() {
+    public static boolean turnWifiApOn() {
         WifiConfiguration wificonfiguration = null;
         try {
             Method method = mWifiManager.getClass().getMethod("setWifiApEnabled", WifiConfiguration.class, boolean.class);
@@ -56,7 +56,7 @@ public class ApManager {
     }
 
     // Turn wifiAp hotspot off
-    public boolean turnWifiApOff() {
+    public static boolean turnWifiApOff() {
         WifiConfiguration wificonfiguration = null;
         try {
             Method method = mWifiManager.getClass().getMethod("setWifiApEnabled", WifiConfiguration.class, boolean.class);
@@ -69,7 +69,7 @@ public class ApManager {
     }
 
 
-    public boolean createNewNetwork(String ssid, String password) {
+    public static boolean createNewNetwork(String ssid, String password) {
         mWifiManager.setWifiEnabled(false); // turn off Wifi
         if (isApOn()) {
             turnWifiApOff();
@@ -79,7 +79,9 @@ public class ApManager {
         }
 // creating new wifi configuration
         WifiConfiguration myConfig = new WifiConfiguration();
-        myConfig.SSID = ssid; // SSID name of netwok
+
+        // TODO :  Check why SSID name is not getting changed
+        myConfig.SSID = ssid; // SSID name of network
         myConfig.preSharedKey = password; // password for network
         myConfig.allowedKeyManagement.set(4); // 4 is for KeyMgmt.WPA2_PSK which is not exposed by android KeyMgmt class
         myConfig.allowedAuthAlgorithms.set(WifiConfiguration.AuthAlgorithm.OPEN); // Set Auth Algorithms to open
@@ -87,7 +89,7 @@ public class ApManager {
             Method method = mWifiManager.getClass().getMethod("setWifiApEnabled", WifiConfiguration.class, boolean.class);
             return (Boolean) method.invoke(mWifiManager, myConfig, true);  // setting and turing on android wifiap with new configrations
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("MiraApManager", "Exception : "+e.getMessage());
         }
         return false;
 

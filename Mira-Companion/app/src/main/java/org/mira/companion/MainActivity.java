@@ -1,12 +1,21 @@
 package org.mira.companion;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -41,6 +50,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialize.util.UIUtils;
 import com.mikepenz.octicons_typeface_library.Octicons;
 
+import org.mira.companion.MiraAPIs.MiraApManager;
 import org.mira.companion.MiraAPIs.MiraNetwork;
 import org.mira.companion.Utils.CrossfadeWrapper;
 import org.mira.companion.Utils.Helper;
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     //TODO : Clean this code... too messed up :/
 
     private static final int PROFILE_SETTING = 1;
+    private static final int CODE_WRITE_SETTINGS_PERMISSION =1 ;
 
     //save our header or result
     private AccountHeader headerResult = null;
@@ -130,8 +141,11 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                         // YES
-
-
+                                            checkForSystemSettingsPermision(MainActivity.this);
+                                            // TODO : Rewrite this part
+                                            MiraApManager miraApManager = new MiraApManager(MainActivity.this);
+                                            miraApManager.turnWifiApOn();
+                                            miraApManager.createNewNetwork("MIRA_5DF54", "0123456789");
                                         }
                                     }
                             );
@@ -402,6 +416,49 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+    public static void checkForSystemSettingsPermision(Activity context){
+        boolean permission;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            permission = Settings.System.canWrite(context);
+        } else {
+            permission = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_SETTINGS) == PackageManager.PERMISSION_GRANTED;
+        }
+        if (permission) {
+            //do your code
+        }  else {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
+                intent.setData(Uri.parse("package:" + context.getPackageName()));
+                context.startActivityForResult(intent, MainActivity.CODE_WRITE_SETTINGS_PERMISSION);
+            } else {
+                ActivityCompat.requestPermissions(context, new String[]{Manifest.permission.WRITE_SETTINGS}, MainActivity.CODE_WRITE_SETTINGS_PERMISSION);
+            }
+        }
+    }
+
+
+
+
+
+    @SuppressLint("NewApi")
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CODE_WRITE_SETTINGS_PERMISSION && Settings.System.canWrite(this)){
+            Log.d("TAG", "CODE_WRITE_SETTINGS_PERMISSION success");
+            //do your code
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CODE_WRITE_SETTINGS_PERMISSION && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            //do your code
+        }
     }
 
 }
