@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">@color/couleur</color>
+    <color name="primary_dark">@color/couleur</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="accent">@color/couleur</color>
+    <color name="colorPrimary">@color/couleur</color>
+    <color name="colorPrimaryDark">@color/couleur</color>
+    <color name="colorAccent">#7ade09</color>
+    <color name="couleur">#0274b3</color>
+
+    <color name="white">#fff</color>
+
+
+
+
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="darkColor">#222222</color>
+
+
+    <color name="colorGreen">#ff669900</color>
+    <color name="colorGray">#eae5e5</color>
+
+    <color name="first_slide_background">#E91E63</color>
+    <color name="first_slide_buttons">#880E4F</color>
+    <color name="second_slide_background">#9C27B0</color>
+    <color name="second_slide_buttons">#4A148C</color>
+    <color name="third_slide_background">#009688</color>
+    <color name="third_slide_buttons">#004D40</color>
+    <color name="fourth_slide_background">#795548</color>
+    <color name="fourth_slide_buttons">#3E2723</color>
+    <color name="custom_slide_background">#3F51B5</color>
+    <color name="custom_slide_buttons">#1A237E</color>
+    <color name="custom_slide_background_1">#009AB1</color>
+    <color name="custom_slide_buttons_1">#1A237E</color>
+
+    <color name="custom_slide_background_2">#030B1D</color>
+    <color name="custom_slide_buttons_2">#1A237E</color>
+
+    <color name="custom_slide_background_3">#FFB400</color>
+    <color name="custom_slide_buttons_3">#1A237E</color>
+
+    <color name="custom_slide_background_4">#390341</color>
+    <color name="custom_slide_buttons_4">#1A237E</color>
+
+
+
+    <color name="blueStart">#4EFFF3</color>
+    <color name="blueEnd">#0ca6f9</color>
+    <color name="purpleStart">#a369ff</color>
+    <color name="purpleEnd">#0e56ff</color>
+    <color name="roseStart">#FF6A00</color>
+    <color name="roseEnd">#ef0276</color>
+    <color name="greenStart">#a7f56e</color>
+    <color name="greenEnd">#11c612</color>
+
+    <!--Splash Screen-->
+    <item name="splash_background" type="color">@color/colorAccent</item>
+
+
+</resources>

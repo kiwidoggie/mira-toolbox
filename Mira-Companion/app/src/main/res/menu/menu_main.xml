@@ -1,0 +1,56 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="org.mira.companion.MainActivity">
+
+
+
+    <item
+        android:id="@+id/action_remote"
+        android:icon="@drawable/ic_remote_black_24dp"
+        android:orderInCategory="100"
+        android:title="@string/action_remote_menu"
+        app:showAsAction="ifRoom" />
+
+
+
+    <item
+        android:id="@+id/action_hotspot"
+        android:icon="@drawable/ic_wifi_tethering_white_24dp"
+        android:orderInCategory="100"
+        android:title="@string/action_hostpot_menu"
+        app:showAsAction="ifRoom" />
+
+
+
+
+    <item
+        android:id="@+id/action_debug"
+        android:icon="@drawable/ic_debug_report_24dp"
+        android:orderInCategory="100"
+        android:title="@string/action_debug_menu"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/action_plugins"
+        android:icon="@drawable/ic_plugins"
+        android:orderInCategory="100"
+        android:title="@string/action_plugins_menu"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/action_power"
+        android:icon="@drawable/ic_settings_power"
+        android:orderInCategory="100"
+        android:title="@string/action_power_menu"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>
