@@ -19,6 +19,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -152,7 +153,18 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id)
         {
+            case R.id.action_info:
 
+                new AlertDialog.Builder(this)
+                        .setTitle("Infos")
+                        .setMessage(R.string.devs_name)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                        .show();
+
+               break;
 
             case R.id.action_hotspot:
 
@@ -306,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
 
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1).withTypeface(tf),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_app_store_ios).withIdentifier(2).withTypeface(tf) /*.withBadgeStyle(new BadgeStyle(Color.BLUE, Color.WHITE)).withIdentifier(2).withSelectable(false) */,
+                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(GoogleMaterial.Icon.gmd_burst_mode).withIdentifier(2).withTypeface(tf) /*.withBadgeStyle(new BadgeStyle(Color.BLUE, Color.WHITE)).withIdentifier(2).withSelectable(false) */,
                         new PrimaryDrawerItem().withName(R.string.action_menu_devices).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3).withTypeface(tf),
                         new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(GoogleMaterial.Icon.gmd_cloud_download).withIdentifier(4).withTypeface(tf),
                         new DividerDrawerItem(),

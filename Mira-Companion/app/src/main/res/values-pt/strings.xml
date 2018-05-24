@@ -6,6 +6,7 @@
     <string name="action_hostpot_menu">Ativar Ponto de Acesso WiFi</string>
     <string name="action_remote_menu">Controlar Remotamente</string>
     <string name="action_debug_menu">Menu de Depuração</string>
+    <string name="action_info">Infos</string>
     <string name="action_plugins_menu">Menu de Plugins</string>
 
     <string name="action_menu_main">Início</string>
@@ -18,5 +19,6 @@
     <string name="yes">Sim</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="my_notifications">Mes notifications</string>
+    <string name="devs_name">This application is a part of the Mira project.\n\nSpecial Thanks to the whole @OpenOrbis Team \n\n Development:\n - @astonbraham\n\n Contributor:\n - @valentinbreiz\n\nTranslator:\n - @helloitu (Portuguese) \n </string>
 
 </resources>
