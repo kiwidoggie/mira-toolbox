@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mira Companion</string>
+    <string name="please_wait">Por favor, aguarde...</string>
+    <string name="action_settings">Informações</string>
+    <string name="action_power_menu">Desligar</string>
+    <string name="action_hostpot_menu">Ativar Ponto de Acesso WiFi</string>
+    <string name="action_remote_menu">Controlar Remotamente</string>
+    <string name="action_debug_menu">Menu de Depuração</string>
+    <string name="action_plugins_menu">Menu de Plugins</string>
+
+    <string name="action_menu_main">Início</string>
+    <string name="action_menu_store">Loja</string>
+    <string name="action_menu_devices">Dispositivos</string>
+    <string name="action_menu_plugins">Plugins</string>
+    <string name="action_menu_downloads">Downloads</string>
+    <string name="action_menu_night_mode">Modo Noturno</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+
+</resources>
