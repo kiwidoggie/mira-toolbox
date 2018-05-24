@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +26,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mikepenz.crossfader.Crossfader;
@@ -50,6 +54,14 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialize.util.UIUtils;
 import com.mikepenz.octicons_typeface_library.Octicons;
 
+import org.mira.companion.Activities.DebuggerActivity;
+import org.mira.companion.Activities.PluginsFragment;
+import org.mira.companion.Activities.RemoteControllerActivity;
+import org.mira.companion.Activities.SettingsActivity;
+import org.mira.companion.Fragments.DevicesFragment;
+import org.mira.companion.Fragments.DownloadsFragment;
+import org.mira.companion.Fragments.HomeFragment;
+import org.mira.companion.Fragments.StoreFragment;
 import org.mira.companion.MiraAPIs.MiraApManager;
 import org.mira.companion.MiraAPIs.MiraNetwork;
 import org.mira.companion.Utils.CrossfadeWrapper;
@@ -69,23 +81,36 @@ public class MainActivity extends AppCompatActivity {
     private Drawer result = null;
     private MiniDrawer miniResult = null;
     private Crossfader crossFader;
-
+    Fragment defaultFragment;
+    Typeface tf;
     private static final int PROFILE_LOGOUT = 1;
     private static int IN_STAFF = 0;
 
+    Toolbar toolbar;
+    TextView mTitle, mSubtitle;
 
     private OnCheckedChangeListener onCheckedChangeListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_beta);
+
+        tf = Typeface.createFromAsset(this.getAssets(), "SF/SF-Pro-Display-Regular.otf");
+   /*     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Mira Companion");
+*/
 
+        setTitle(getString(R.string.app_name));
+        toolbar = findViewById(R.id.tabanim_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mTitle = toolbar.findViewById(R.id.toolbar_title);
+        mSubtitle = toolbar.findViewById(R.id.toolbar_subtitle);
 
+        setCustomTitle("Mira Companion", "Welcome buddy");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +124,16 @@ public class MainActivity extends AppCompatActivity {
        // setupMenuDrawer(savedInstanceState, toolbar);
         setMenu(savedInstanceState, toolbar);
     }
+
+
+    public void changeFragment(Fragment f) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, f);
+        //  ft.addToBackStack(null);
+        ft.commit();
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -155,19 +190,37 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_settings:
                 Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+
+                        Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                        startActivity(settingsIntent);
+
                 break;
 
             case R.id.action_remote:
                 Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+
+                Intent remoteControllerIntent = new Intent(MainActivity.this, RemoteControllerActivity.class);
+                startActivity(remoteControllerIntent);
+
                 break;
 
 
             case R.id.action_debug:
                 Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+
+                Intent debugActivity = new Intent(MainActivity.this, DebuggerActivity.class);
+                startActivity(debugActivity);
                 break;
 
             case R.id.action_plugins:
                 Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+
+            /*    Intent debugActivity = new Intent(MainActivity.this, DebuggerActivity.class);
+                startActivity(debugActivity);*/
+
+                changeFragment(new PluginsFragment());
+
+
                 break;
 
 
@@ -188,7 +241,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void setMenu(Bundle savedInstanceState, Toolbar toolbar)
     {
-        final IProfile profile = new ProfileDrawerItem().withName("Welcome, ").withEmail("Mira User").withIcon(getResources().getDrawable(R.mipmap.ic_launcher_foreground));
+        defaultFragment = new HomeFragment();
+
+
+
+        final IProfile profile = new ProfileDrawerItem().withName("Welcome, ").withEmail("Mira User").withIcon(getResources().getDrawable(R.mipmap.ic_launcher_foreground)).withTypeface(tf);
 
         // Create the AccountHeader
         headerResult = new AccountHeaderBuilder()
@@ -197,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
                 .addProfiles(
                         profile,
                         //don't ask but google uses 14dp for the add account icon in gmail but 20dp for the normal icons (like manage account)
-                        new ProfileSettingDrawerItem().withName("Logout").withDescription("Leave Mira!").withIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_sign_out_alt).colorRes(R.color.colorPrimary)).withIdentifier(PROFILE_LOGOUT)
+                        new ProfileSettingDrawerItem().withName("Logout").withDescription("Leave Mira!").withIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_sign_out_alt).colorRes(R.color.colorPrimary)).withTypeface(tf).withIdentifier(PROFILE_LOGOUT)
                         //               new ProfileSettingDrawerItem().withName("Réglages").withIcon(new IconicsDrawable(this, FontAwesome.Icon.faw_cogs).colorRes(R.color.colorPrimary)).withIdentifier(PROFILE_SETTING)
                 )
                 .withSelectionListEnabledForSingleProfile(true) // pour avoir un seul compte
@@ -248,18 +305,13 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult) //set the AccountHeader we created earlier for the header
 
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_app_store_ios).withBadge("22") /*.withBadgeStyle(new BadgeStyle(Color.BLUE, Color.WHITE)).withIdentifier(2).withSelectable(false) */,
-                        new PrimaryDrawerItem().withName(R.string.action_menu_devices).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3),
-                        new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(GoogleMaterial.Icon.gmd_cloud_download).withIdentifier(4),
-                          /*          new PrimaryDrawerItem().withDescription("A more complex sample").withName(R.string.drawer_item_advanced_drawer).withIcon(GoogleMaterial.Icon.gmd_adb).withIdentifier(5),
-                        new SectionDrawerItem().withName(R.string.drawer_item_section_header),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_open_source).withIcon(FontAwesome.Icon.faw_github),
-                        new SecondaryDrawerItem().withName(R.string.drawer_item_contact).withIcon(GoogleMaterial.Icon.gmd_format_color_fill).withTag("Bullhorn"),
-           */             new DividerDrawerItem(),
-                        new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(GoogleMaterial.Icon.gmd_settings_brightness).withChecked(false).withOnCheckedChangeListener(onCheckedChangeListener)
+                        new PrimaryDrawerItem().withName(R.string.action_menu_main).withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1).withTypeface(tf),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_app_store_ios).withIdentifier(2).withTypeface(tf) /*.withBadgeStyle(new BadgeStyle(Color.BLUE, Color.WHITE)).withIdentifier(2).withSelectable(false) */,
+                        new PrimaryDrawerItem().withName(R.string.action_menu_devices).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3).withTypeface(tf),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(GoogleMaterial.Icon.gmd_cloud_download).withIdentifier(4).withTypeface(tf),
+                        new DividerDrawerItem(),
+                        new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(GoogleMaterial.Icon.gmd_settings_brightness).withTypeface(tf).withChecked(false).withOnCheckedChangeListener(onCheckedChangeListener)
                         //         new ToggleDrawerItem().withName("Toggle").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
-
                 )
 
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -276,18 +328,25 @@ public class MainActivity extends AppCompatActivity {
                             //  Toast.makeText(getApplicationContext(), "Identifier : "+drawerItem.getIdentifier(), Toast.LENGTH_SHORT).show();
 
                             if (drawerItem.getIdentifier() == 1) {
-
-                            //    defaultFragment= new LaboratoireHome();
-                               // changeFragment(defaultFragment);
+                                setCustomTitle("Mira Companion", "Welcome buddy");
+                                changeFragment(new HomeFragment());
 
                             } else if (drawerItem.getIdentifier() == 2) {
 
-                          //    defaultFragment= new ProfilFragment();
-                             //   changeFragment(defaultFragment);
+                                setCustomTitle("Mira Companion", "Mira Store");
+                                changeFragment(new StoreFragment());
 
                             }
+                            else if (drawerItem.getIdentifier() == 3) {
+                                setCustomTitle("Mira Companion", "My Devices");
+                                changeFragment(new DevicesFragment());
+                            }
+                            else if (drawerItem.getIdentifier() == 4) {
 
+                                setCustomTitle("Mira Companion", "My Downloads");
+                                changeFragment(new DownloadsFragment());
 
+                            }
 
 
 
@@ -310,9 +369,12 @@ public class MainActivity extends AppCompatActivity {
 
             //set the active profile
             headerResult.setActiveProfile(profile);
-            result.openDrawer();
+        //    result.openDrawer();
             //   checkSyncs();
         }
+
+
+        changeFragment(new HomeFragment());
     }
 
 
@@ -419,6 +481,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void setCustomTitle(String title, String subtitle) {
+        mTitle.setText(title);
+        mSubtitle.setText(subtitle);
+        mTitle.setTypeface(tf);
+        mSubtitle.setTypeface(tf);
+    }
+
+
+
+
+
     public static void checkForSystemSettingsPermision(Activity context){
         boolean permission;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -438,7 +512,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
 
 
