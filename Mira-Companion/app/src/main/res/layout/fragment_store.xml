@@ -3,12 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.StoreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:background="@color/colorPrimaryDark"
+            android:minHeight="175dp"
+            android:id="@+id/store_header"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+
+        <org.mira.companion.Views.Waver.WaveLoadingView
+            android:id="@+id/waveLoadingView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            app:wlv_borderColor="@color/colorPrimary"
+            app:wlv_borderWidth="0dp"
+            app:wlv_progressValue="40"
+            app:wlv_shapeType="rectangle"
+            app:wlv_round_rectangle="false"
+            app:wlv_triangle_direction="south"
+            app:wlv_waveAmplitude="-100"
+            app:wlv_waveColor="@color/colorPrimary"/>
+    </LinearLayout>
+
+
 
 </FrameLayout>

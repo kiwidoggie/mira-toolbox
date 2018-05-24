@@ -1,40 +1,40 @@
 package org.mira.companion.MiraAPIs;
 
-import org.mira.companion.Models.PS4;
+import org.mira.companion.Models.Device;
 
 public class Power {
 
-    private PS4 mPs4;
+    private Device mDevice;
 
 
-    public static void sleepPS4(PS4 mPs4)
+    public static void sleepPS4(Device mDevice)
     {
 
     }
 
-    public static void shutdownPS4(PS4 mPs4)
-    {
-
-    }
-
-
-    public static void rebootPS4(PS4 mPs4)
-    {
-
-    }
-
-    public static void rebootIntoLinuxFromUsb(PS4 mPs4)
+    public static void shutdownPS4(Device mDevice)
     {
 
     }
 
 
-    public static void rebootIntoLinuxFromHDD(PS4 mPs4)
+    public static void rebootPS4(Device mDevice)
     {
 
     }
 
-    public static void exitMira(PS4 mPs4)
+    public static void rebootIntoLinuxFromUsb(Device mDevice)
+    {
+
+    }
+
+
+    public static void rebootIntoLinuxFromHDD(Device mDevice)
+    {
+
+    }
+
+    public static void exitMira(Device mDevice)
     {
 
     }
