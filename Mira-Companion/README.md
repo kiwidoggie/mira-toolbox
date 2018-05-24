@@ -1,6 +1,6 @@
 # Mira Companion
 
-An Android application to control MiraCFW.
+An Android application to control MiraCFW, for upcoming features see [this list](https://github.com/OpenOrbis/mira-toolbox/issues/3).
 
 This is a [Work in Progress] and Contributors are highly needed at the moment.
 
