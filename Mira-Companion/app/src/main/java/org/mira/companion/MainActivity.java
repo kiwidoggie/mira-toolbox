@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
 
                             } else if (drawerItem.getIdentifier() == 2) {
 
-                                setCustomTitle("Mira Companion", "Mira Store");
+                                setCustomTitle("Mira Companion", "Mira Store - Latest Homebrews, Payloads, and Plugins");
                                 changeFragment(new StoreFragment());
 
                             }

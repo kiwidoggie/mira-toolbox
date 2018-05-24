@@ -19,6 +19,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 
+/**
+ * Created by @AstonBraham
+ * Updated on 24/05/2018.
+ */
+
 public class Helper {
 
     static ProgressDialog pDialog;

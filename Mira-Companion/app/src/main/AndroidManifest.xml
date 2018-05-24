@@ -35,7 +35,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.DebuggerActivity" />
-        <activity android:name=".Activities.RemoteControllerActivity" />
+        <activity android:name=".Activities.RemoteControllerActivity"
+            />
         <activity android:name=".Activities.SettingsActivity"></activity>
     </application>
 

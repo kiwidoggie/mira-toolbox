@@ -5,6 +5,10 @@ import android.os.Bundle;
 
 import org.mira.companion.R;
 
+/**
+ * Created by @AstonBraham on 24/05/2018.
+ */
+
 public class RemoteControllerActivity extends AppCompatActivity {
 
     @Override

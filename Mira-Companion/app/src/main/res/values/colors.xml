@@ -6,14 +6,10 @@
     <color name="accent">@color/couleur</color>
     <color name="colorPrimary">@color/couleur</color>
     <color name="colorPrimaryDark">@color/couleur</color>
-    <color name="colorAccent">#7ade09</color>
+    <color name="colorAccent">#528f0d</color>
     <color name="couleur">#0274b3</color>
 
     <color name="white">#fff</color>
-
-
-
-
 
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>

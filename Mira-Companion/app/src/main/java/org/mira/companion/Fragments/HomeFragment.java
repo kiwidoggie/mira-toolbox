@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import org.mira.companion.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * Created by @AstonBraham on 24/05/2018.
  */
 public class HomeFragment extends Fragment {
 

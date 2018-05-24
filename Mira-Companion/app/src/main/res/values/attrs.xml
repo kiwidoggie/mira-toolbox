@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalScrollMenuView">
+        <attr name="icon_width" format="dimension" />
+        <attr name="icon_height" format="dimension" />
+        <attr name="backgroundMenuColor" format="color" />
+        <attr name="backgroundNotifications" format="color" />
+        <attr name="item_textColor" format="color" />
+        <attr name="item_backgroundColor" format="color" />
+        <attr name="item_marginTop" format="dimension" />
+        <attr name="item_marginBottom" format="dimension" />
+        <attr name="item_marginLeft" format="dimension" />
+        <attr name="item_marginRight" format="dimension" />
+        <attr name="item_colorSelected" format="color" />
+        <attr name="item_textSize" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="WaveLoadingView">
+        <attr name="wlv_borderWidth" format="dimension"/>
+        <attr name="wlv_borderColor" format="color"/>
+        <attr name="wlv_progressValue" format="integer"/>
+        <attr name="wlv_shapeType" format="enum">
+            <enum name="triangle" value="0" />
+            <enum name="circle" value="1" />
+            <enum name="square" value="2" />
+            <enum name="rectangle" value="3" />
+        </attr>
+        <attr name="wlv_triangle_direction" format="enum">
+            <enum name="north" value="0" />
+            <enum name="south" value="1" />
+            <enum name="east" value="2" />
+            <enum name="west" value="3" />
+        </attr>
+        <attr name="wlv_round_rectangle" format="boolean"/>
+        <attr name="wlv_round_rectangle_x_and_y" format="integer"/>
+        <attr name="wlv_waveColor" format="color"/>
+        <attr name="wlv_wave_background_Color" format="color"/>
+        <attr name="wlv_waveAmplitude" format="float"/>
+        <attr name="wlv_titleTop" format="string"/>
+        <attr name="wlv_titleCenter" format="string"/>
+        <attr name="wlv_titleBottom" format="string"/>
+        <attr name="wlv_titleTopSize" format="dimension"/>
+        <attr name="wlv_titleCenterSize" format="dimension"/>
+        <attr name="wlv_titleBottomSize" format="dimension"/>
+        <attr name="wlv_titleTopColor" format="color"/>
+        <attr name="wlv_titleCenterColor" format="color"/>
+        <attr name="wlv_titleBottomColor" format="color"/>
+        <attr name="wlv_titleTopStrokeColor" format="color"/>
+        <attr name="wlv_titleTopStrokeWidth" format="dimension"/>
+        <attr name="wlv_titleBottomStrokeColor" format="color"/>
+        <attr name="wlv_titleBottomStrokeWidth" format="dimension"/>
+        <attr name="wlv_titleCenterStrokeColor" format="color"/>
+        <attr name="wlv_titleCenterStrokeWidth" format="dimension"/>
+    </declare-styleable>
+
+
+</resources>
