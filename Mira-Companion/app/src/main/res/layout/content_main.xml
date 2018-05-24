@@ -128,6 +128,13 @@
                 android:minHeight="200dp"
                 >
 
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="Launch_Logs_Activity"
+                    android:text="See kernel logs" />
+
                 <TextView
                     android:visibility="gone"
                     android:background="@color/colorGray"

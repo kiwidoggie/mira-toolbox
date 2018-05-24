@@ -62,6 +62,7 @@ import org.mira.companion.Activities.SettingsActivity;
 import org.mira.companion.Fragments.DevicesFragment;
 import org.mira.companion.Fragments.DownloadsFragment;
 import org.mira.companion.Fragments.HomeFragment;
+import org.mira.companion.Fragments.LogsFragment;
 import org.mira.companion.Fragments.StoreFragment;
 import org.mira.companion.MiraAPIs.MiraApManager;
 import org.mira.companion.MiraAPIs.MiraNetwork;
@@ -249,7 +250,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    public void Launch_Logs_Activity(View view)
+    {
+        Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+        changeFragment(new LogsFragment());
+    }
 
     public void setMenu(Bundle savedInstanceState, Toolbar toolbar)
     {
