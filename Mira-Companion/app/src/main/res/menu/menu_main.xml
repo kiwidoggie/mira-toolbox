@@ -8,7 +8,7 @@
     <item
         android:id="@+id/action_remote"
         android:icon="@drawable/ic_remote_black_24dp"
-        android:orderInCategory="100"
+        android:orderInCategory="1"
         android:title="@string/action_remote_menu"
         app:showAsAction="ifRoom" />
 
@@ -17,11 +17,17 @@
     <item
         android:id="@+id/action_hotspot"
         android:icon="@drawable/ic_wifi_tethering_white_24dp"
-        android:orderInCategory="100"
+        android:orderInCategory="2"
         android:title="@string/action_hostpot_menu"
         app:showAsAction="ifRoom" />
 
 
+    <item
+        android:id="@+id/action_info"
+        android:icon="@drawable/ic_info"
+        android:orderInCategory="3"
+        android:title="@string/action_info"
+        app:showAsAction="ifRoom" />
 
 
     <item
