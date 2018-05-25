@@ -60,6 +60,7 @@ import org.mira.companion.Activities.RemoteControllerActivity;
 import org.mira.companion.Activities.SettingsActivity;
 import org.mira.companion.Fragments.DevicesFragment;
 import org.mira.companion.Fragments.DownloadsFragment;
+import org.mira.companion.Fragments.FileManager;
 import org.mira.companion.Fragments.HomeFragment;
 import org.mira.companion.Fragments.StoreFragment;
 import org.mira.companion.MiraAPIs.MiraApManager;
@@ -242,9 +243,6 @@ public class MainActivity extends AppCompatActivity {
     public void setMenu(Bundle savedInstanceState, Toolbar toolbar)
     {
         defaultFragment = new HomeFragment();
-
-
-
         final IProfile profile = new ProfileDrawerItem().withName("Welcome, ").withEmail("Mira User").withIcon(getResources().getDrawable(R.mipmap.ic_launcher_foreground)).withTypeface(tf);
 
         // Create the AccountHeader
@@ -309,6 +307,7 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName(R.string.action_menu_store).withIcon(FontAwesome.Icon.faw_app_store_ios).withIdentifier(2).withTypeface(tf) /*.withBadgeStyle(new BadgeStyle(Color.BLUE, Color.WHITE)).withIdentifier(2).withSelectable(false) */,
                         new PrimaryDrawerItem().withName(R.string.action_menu_devices).withIcon(FontAwesome.Icon.faw_gamepad).withIdentifier(3).withTypeface(tf),
                         new PrimaryDrawerItem().withName(R.string.action_menu_downloads).withIcon(GoogleMaterial.Icon.gmd_cloud_download).withIdentifier(4).withTypeface(tf),
+                        new PrimaryDrawerItem().withName(R.string.action_menu_fmanager).withIcon(GoogleMaterial.Icon.gmd_file_upload).withIdentifier(5).withTypeface(tf),
                         new DividerDrawerItem(),
                         new SwitchDrawerItem().withName(R.string.action_menu_night_mode).withIcon(GoogleMaterial.Icon.gmd_settings_brightness).withTypeface(tf).withChecked(false).withOnCheckedChangeListener(onCheckedChangeListener)
                         //         new ToggleDrawerItem().withName("Toggle").withIcon(Octicons.Icon.oct_tools).withChecked(true).withOnCheckedChangeListener(onCheckedChangeListener)
@@ -345,9 +344,12 @@ public class MainActivity extends AppCompatActivity {
 
                                 setCustomTitle("Mira Companion", "My Downloads");
                                 changeFragment(new DownloadsFragment());
-
                             }
+                            else if (drawerItem.getIdentifier() == 5) {
 
+                                setCustomTitle("Mira Companion", "File Manager");
+                                changeFragment(new FileManager());
+                            }
 
 
                         }
@@ -358,10 +360,6 @@ public class MainActivity extends AppCompatActivity {
                 .withSavedInstance(savedInstanceState)
                 .withShowDrawerOnFirstLaunch(true)
                 .build();
-
-
-
-
 
         if (savedInstanceState == null) {
             // set the selection to the item with the identifier 11
@@ -490,9 +488,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     public static void checkForSystemSettingsPermision(Activity context){
         boolean permission;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -512,8 +507,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
 
     @SuppressLint("NewApi")
