@@ -13,6 +13,12 @@ public class Device {
     private String firmware_version;
     private String mira_version;
 
+    private static Device INSTANCE = new Device();
+
+    public static Device getInstance() {
+        return(INSTANCE);
+    }
+
     public int getStatus() {
         return status;
     }

@@ -50,7 +50,7 @@ dependencies {
 
     implementation 'com.mikepenz:octicons-typeface:3.2.0.4@aar'
 
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 
     implementation "com.mikepenz:crossfader:1.5.2@aar"
     implementation 'com.android.support:appcompat-v7:27.1.1'

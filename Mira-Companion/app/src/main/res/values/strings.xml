@@ -17,6 +17,7 @@
     <string name="action_menu_devices">Devices</string>
     <string name="action_menu_plugins">Plugins</string>
     <string name="action_menu_downloads">Downloads</string>
+    <string name="action_menu_fmanager">File Manager</string>
     <string name="action_menu_night_mode">Night Mode</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>

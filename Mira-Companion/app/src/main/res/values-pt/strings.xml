@@ -14,6 +14,7 @@
     <string name="action_menu_devices">Dispositivos</string>
     <string name="action_menu_plugins">Plugins</string>
     <string name="action_menu_downloads">Downloads</string>
+    <string name="action_menu_fmanager">Gerenciador de arquivos</string>
     <string name="action_menu_night_mode">Modo Noturno</string>
     <string name="no">Não</string>
     <string name="yes">Sim</string>
