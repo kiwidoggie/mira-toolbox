@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">Mira Companion</string>
-    <string name="please_wait">Lütfen, bekleyin…</string>
-    <string name="action_settings">Ayarlar</string>
-    <string name="action_power_menu">Kapat</string>
-    <string name="action_hostpot_menu"> WİFİ-Kablosuz Erişimi Etkinleştir</string>
-    <string name="action_remote_menu">Uzaktan Kontrol</string>
-    <string name="action_debug_menu">Geliştirici Menü</string>
-    <string name="action_plugins_menu">Eklenti Menü</string>
+    <string name="please_wait"Prosím, počkajte>…</string>
+    <string name="action_settings">Nastavenie</string>
+    <string name="action_power_menu">Zatvoriť</string>
+    <string name="action_hostpot_menu"> Povoliť bezdrôtový prístup Wi-Fi</string>
+    <string name="action_remote_menu">Diaľkové ovládanie</string>
+    <string name="action_debug_menu">Ponuka pre vývojárov</string>
+    <string name="action_plugins_menu">Ponuka doplnkov</string>
 
-    <string name="action_menu_main">Ev</string>
-    <string name="action_menu_store">Mağaza</string>
-    <string name="action_menu_devices">Cihazlar</string>
-    <string name="action_menu_plugins">Eklentiler</string>
-    <string name="action_menu_downloads">İndirilenler</string>
-    <string name="action_menu_night_mode">Gece Modu</string>
-    <string name="no">Hayır</string>
-    <string name="yes">Evet</string>
+    <string name="action_menu_main">Domov</string>
+    <string name="action_menu_store">Obchod</string>
+    <string name="action_menu_devices">Nástroje</string>
+    <string name="action_menu_plugins">Prílohy</string>
+    <string name="action_menu_downloads">Sťahovanie</string>
+    <string name="action_menu_night_mode">Nočný režim</string>
+    <string name="no">Žiadny</string>
+    <string name="yes">Áno</string>
 </resources>
