@@ -8,7 +8,7 @@
     <string name="action_hostpot_menu">Abilita Hotspot Wi-Fi</string>
     <string name="action_rpc_tool">Strumento RPC</string>
     <string name="action_remote_menu">Controllo Remoto</string>
-    <string name="action_debug_menu">Menu Debug</string>
+    <string name="action_debug_menu">Menù Debug</string>
     <string name="action_info">A proposito di...</string>
     <string name="action_plugins_menu">Menù Plugins</string>
 
