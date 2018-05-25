@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Mira Companion</string>
-    <string name="please_wait"Prosím, počkajte>…</string>
+    <string name="please_wait">Prosím, počkajte>…</string>
     <string name="action_settings">Nastavenie</string>
     <string name="action_power_menu">Zatvoriť</string>
     <string name="action_hostpot_menu"> Povoliť bezdrôtový prístup Wi-Fi</string>
