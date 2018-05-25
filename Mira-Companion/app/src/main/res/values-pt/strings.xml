@@ -3,6 +3,7 @@
     <string name="please_wait">Por favor, aguarde...</string>
     <string name="action_settings">Informações</string>
     <string name="action_power_menu">Desligar</string>
+    <string name="action_rpc_tool">RPC Tool</string>
     <string name="action_hostpot_menu">Ativar Ponto de Acesso WiFi</string>
     <string name="action_remote_menu">Controlar Remotamente</string>
     <string name="action_debug_menu">Menu de Depuração</string>
@@ -21,4 +22,7 @@
     <string name="my_notifications">Mes notifications</string>
     <string name="devs_name">This application is a part of the Mira project.\n\nSpecial Thanks to the whole @OpenOrbis Team \n\n Development:\n - @astonbraham\n\n Contributor:\n - @valentinbreiz\n\nTranslator:\n - @helloitu (Portuguese) \n </string>
 
+    <string name="yesterday">hier</string>
+    <string name="tomorrow">demain</string>
+    <string name="today">aujourd&#8217; hui</string>
 </resources>

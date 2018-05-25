@@ -45,18 +45,15 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.SwitchDrawerItem;
-import com.mikepenz.materialdrawer.model.ToggleDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialize.util.UIUtils;
-import com.mikepenz.octicons_typeface_library.Octicons;
 
 import org.mira.companion.Activities.DebuggerActivity;
 import org.mira.companion.Activities.PluginsFragment;
+import org.mira.companion.Activities.RPCToolActivity;
 import org.mira.companion.Activities.RemoteControllerActivity;
 import org.mira.companion.Activities.SettingsActivity;
 import org.mira.companion.Fragments.DevicesFragment;
@@ -154,6 +151,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (id)
         {
+
+
+
             case R.id.action_info:
 
                 new AlertDialog.Builder(this)
@@ -236,8 +236,20 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
 
+            case R.id.action_rpc_tool:
+                Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
+
+                Intent rpcActivity = new Intent(MainActivity.this, RPCToolActivity.class);
+                startActivity(rpcActivity);
+         //       setCustomTitle("Mira Companion", "RPC Tool");
+            //    changeFragment(new RPCFragment());
+
+
+                break;
+
 
             case R.id.action_power:
+                setCustomTitle("Mira Companion", "Kernel Logs");
                 Toast.makeText(this, "WIP :/", Toast.LENGTH_SHORT).show();
                 break;
 
