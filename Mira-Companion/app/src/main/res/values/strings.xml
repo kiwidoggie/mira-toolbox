@@ -1,9 +1,12 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="app_name">Mira Companion</string>
     <string name="please_wait">Please, wait…</string>
     <string name="action_settings">Settings</string>
     <string name="action_power_menu">Turn off</string>
     <string name="action_hostpot_menu">Enable Wifi Hotpost</string>
+    <string name="action_rpc_tool">RPC Tool</string>
     <string name="action_remote_menu">Remote Controller</string>
     <string name="action_debug_menu">Debug Menu</string>
     <string name="action_info">About this</string>
@@ -23,4 +26,43 @@
     <string name="my_notifications">My notifications</string>
     <string name="devs_name">This application is a part of the Mira project.\n\nSpecial Thanks to the whole @OpenOrbis Team \n\n Development:\n - @astonbraham\n\n Contributor:\n - @valentinbreiz\n\nTranslator:\n - @helloitu (Portuguese) \n </string>
 
+
+    <!--- Date and timespan strings -->
+
+    <string name="yesterday">hier</string>
+    <string name="tomorrow">demain</string>
+    <string name="today">aujourd&#8217; hui</string>
+
+    <plurals name="num_seconds_ago">
+        <item quantity="one">il y a 1 seconde</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> secondes</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="one">il y a 1 minute</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> minutes</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="one">il y a 1 heure</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> heures</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="one">hier</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> jours</item>
+    </plurals>
+    <plurals name="in_num_seconds">
+        <item quantity="one">dans 1 seconde</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> secondes</item>
+    </plurals>
+    <plurals name="in_num_minutes">
+        <item quantity="one">dans 1 minute</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> minutes</item>
+    </plurals>
+    <plurals name="in_num_hours">
+        <item quantity="one">dans 1 heure</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> heures</item>
+    </plurals>
+    <plurals name="in_num_days">
+        <item quantity="one">demain</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> jours</item>
+    </plurals>
 </resources>

@@ -5,6 +5,16 @@
 
 
 
+
+    <item
+        android:id="@+id/action_rpc_tool"
+        android:icon="@drawable/ic_rpc_tool"
+        android:orderInCategory="0"
+        android:title="@string/action_remote_menu"
+        app:showAsAction="ifRoom" />
+
+
+
     <item
         android:id="@+id/action_remote"
         android:icon="@drawable/ic_remote_black_24dp"
