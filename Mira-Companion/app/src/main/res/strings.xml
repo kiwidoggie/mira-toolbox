@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="app_name">Mira Companion</string>
+    <string name="please_wait">Attendere prego…</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_power_menu">Disattiva</string>
+    <string name="action_hostpot_menu">Abilita Hotspot Wi-Fi</string>
+    <string name="action_rpc_tool">Strumento RPC</string>
+    <string name="action_remote_menu">Controllo Remoto</string>
+    <string name="action_debug_menu">Menu Debug</string>
+    <string name="action_info">A proposito di...</string>
+    <string name="action_plugins_menu">Menù Plugins</string>
+
+    <string name="action_menu_main">Inizio</string>
+    <string name="action_menu_store">Negozio</string>
+    <string name="action_menu_devices">Dispositivi</string>
+    <string name="action_menu_plugins">Plugin</string>
+    <string name="action_menu_downloads">Download</string>
+    <string name="action_menu_fmanager">Gestore File</string>
+    <string name="action_menu_night_mode">Modalità Notturna</string>
+    <string name="no">No</string>
+    <string name="yes">Si</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Ciao frammento vuoto</string>
+    <string name="my_notifications">Le mie notifiche</string>
+    <string name="devs_name">Questa applicazione è parte del progetto Mira.\n\nUn ringraziamento speciale all'intero Team @OpenOrbis \n\n Sviluppo:\n - @astonbraham\n\n Contributi:\n - @valentinbreiz\n\nTranslator:\n - @helloitu (Portoghese) \n </string>
+
+
+    <!--- Date and timespan strings -->
+
+    <string name="yesterday">ieri</string>
+    <string name="tomorrow">domani</string>
+    <string name="today">aujourd&#8217; hui</string>
+
+    <plurals name="num_seconds_ago">
+        <item quantity="one">il y a 1 seconde</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> secondes</item>
+    </plurals>
+    <plurals name="num_minutes_ago">
+        <item quantity="one">il y a 1 minute</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> minutes</item>
+    </plurals>
+    <plurals name="num_hours_ago">
+        <item quantity="one">il y a 1 heure</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> heures</item>
+    </plurals>
+    <plurals name="num_days_ago">
+        <item quantity="one">hier</item>
+        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> jours</item>
+    </plurals>
+    <plurals name="in_num_seconds">
+        <item quantity="one">dans 1 seconde</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> secondes</item>
+    </plurals>
+    <plurals name="in_num_minutes">
+        <item quantity="one">dans 1 minute</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> minutes</item>
+    </plurals>
+    <plurals name="in_num_hours">
+        <item quantity="one">dans 1 heure</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> heures</item>
+    </plurals>
+    <plurals name="in_num_days">
+        <item quantity="one">demain</item>
+        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> jours</item>
+    </plurals>
+</resources>
