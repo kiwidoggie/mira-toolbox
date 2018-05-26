@@ -25,7 +25,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Ciao frammento vuoto</string>
     <string name="my_notifications">Le mie notifiche</string>
-    <string name="devs_name">Questa applicazione è parte del progetto Mira.\n\nUn ringraziamento speciale all'intero Team @OpenOrbis \n\n Sviluppo:\n - @astonbraham\n\n Contributi:\n - @valentinbreiz\n\nTranslator:\n - @helloitu (Portoghese) \n </string>
+    <string name="devs_name">Questa applicazione è parte del progetto Mira.\n\nUn ringraziamento speciale all\'intero Team @OpenOrbis \n\n Sviluppo:\n - @astonbraham\n\n Contributi:\n - @valentinbreiz\n\nTranslator:\n - @helloitu (Portoghese) \n </string>
 
 
     <!--- Date and timespan strings -->
