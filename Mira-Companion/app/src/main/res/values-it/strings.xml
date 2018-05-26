@@ -32,38 +32,38 @@
 
     <string name="yesterday">ieri</string>
     <string name="tomorrow">domani</string>
-    <string name="today">aujourd&#8217; hui</string>
+    <string name="today">oggi</string>
 
     <plurals name="num_seconds_ago">
-        <item quantity="one">il y a 1 seconde</item>
-        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> secondes</item>
+        <item quantity="one">1 secondo fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> secondi fa</item>
     </plurals>
     <plurals name="num_minutes_ago">
-        <item quantity="one">il y a 1 minute</item>
-        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> minutes</item>
+        <item quantity="one">1 minuto fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> minuti fa</item>
     </plurals>
     <plurals name="num_hours_ago">
-        <item quantity="one">il y a 1 heure</item>
-        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> heures</item>
+        <item quantity="one">1 ora fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> ore fa</item>
     </plurals>
     <plurals name="num_days_ago">
-        <item quantity="one">hier</item>
-        <item quantity="other">il y a <xliff:g id="count">%d</xliff:g> jours</item>
+        <item quantity="one">1 giorno fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> giorni fa</item>
     </plurals>
     <plurals name="in_num_seconds">
-        <item quantity="one">dans 1 seconde</item>
-        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> secondes</item>
+        <item quantity="one">1 secondo fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> secondi fa</item>
     </plurals>
     <plurals name="in_num_minutes">
-        <item quantity="one">dans 1 minute</item>
-        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> minutes</item>
+        <item quantity="one">1 minuto fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> minuti fa</item>
     </plurals>
     <plurals name="in_num_hours">
-        <item quantity="one">dans 1 heure</item>
-        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> heures</item>
+        <item quantity="one">1 ora fa</item>
+        <item quantity="other"><xliff:g id="count">%d</xliff:g> ore fa</item>
     </plurals>
     <plurals name="in_num_days">
-        <item quantity="one">demain</item>
-        <item quantity="other">dans <xliff:g id="count">%d</xliff:g> jours</item>
+        <item quantity="one">domani</item>
+        <item quantity="other">fra <xliff:g id="count">%d</xliff:g> giorni</item>
     </plurals>
 </resources>
